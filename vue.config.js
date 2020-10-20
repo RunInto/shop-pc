@@ -31,13 +31,12 @@ module.exports = {
   productionSourceMap: false,
   devServer: {
     port: port,
-    open: true,
+    open: false,
     overlay: {
       warnings: false,
       errors: true
     },
-    before: require('./mock/mock-server.js')
-    /* proxy: {
+    proxy: {
       '/api': {
         target: '127.0.0.1', // 测试服务器接口地址,
         ws: true,
@@ -46,7 +45,7 @@ module.exports = {
           '^/api': ''
         }
       }
-    } */
+    }
   },
   configureWebpack: {
     // provide the app's title in webpack's name field, so that
